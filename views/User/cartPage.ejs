@@ -1,0 +1,38 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/cartData.css">
+
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+   <h2>My cart</h2>
+
+  <% if(cartData.length > 0){ %>
+          <table>
+            <% for(let x of cartData){ %>
+                  <tr>
+                     <td>
+                       <img class="imgStyle" src="../../<%=x.cart[0].p_image %>" alt="">
+                     </td>
+                     <td>
+                        <h5><%=x.cart[0].p_title %></h5>
+                        <h6><%=x.cart[0].p_price %> <i class="fa fa-inr" aria-hidden="true"></i></h6>
+                     </td>
+                     <td>
+                       <label for="">Qty : </label>
+                       <select name="" id="">
+                          <option value="<%=x.quantity%>"><%=x.quantity%></option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                       </select>
+                     </td>
+                     <td>
+                        <a href="/deleteCart/<%=x._id %> ">Remove</a>
+                     </td>
+                  </tr>
+            <% } %>
+          </table>
+  <% } %>
+
+<%-include('../Include/footer.ejs') %>

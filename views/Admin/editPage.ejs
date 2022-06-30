@@ -1,0 +1,39 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/addProduct.css">
+
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+   <h2>Edit product</h2>
+
+    <form action="/editData" method="POST" enctype="multipart/form-data">
+      <input type="hidden" value="<%=csrf_token %>" name="_csrf">
+
+       <div>
+         <input type="text" value="<%=data.p_title %>" name="e_title">
+       </div>
+       <div>
+         <input type="text" value="<%=data.p_price %>" name="e_price">
+       </div>
+       <div>
+         <input type="text" value="<%=data.p_desc %>" name="e_desc">
+       </div>
+       <div>
+         <input type="file" name="p_image">
+       </div>
+       <div>
+         <input type="hidden" value="<%=data._id %>" name="edit_id">
+       </div>
+       <div>
+         <input type="hidden" value="<%=data.p_image %>" name="oldUrl">
+       </div>
+       <div>
+         <button type="submit">Add Product</button>
+       </div>
+    </form>
+
+
+    <br>
+
+<%-include('../Include/footer.ejs') %>

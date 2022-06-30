@@ -1,0 +1,22 @@
+
+h2{
+   text-align: center;
+}
+
+table{
+   width: 70%;
+   margin: 20px auto;
+   box-shadow: 1px 1px 3px 1px black;
+   text-align: center;
+}
+
+tr{
+   border: 1px solid black;
+}
+td{
+   width:25%;
+}
+.imgStyle{
+   width:100%;
+   height: 80px;
+}

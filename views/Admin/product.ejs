@@ -1,0 +1,40 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+<style>
+
+</style>
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+
+   <h2>Product page</h2>
+
+  <% if(data.length > 0){ %>
+      <table>
+          <tr>
+            <th>Product name</th>
+            <th>Product price</th>
+            <th>Product desc</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+         <% for(let x of data){ %>
+            <tr>
+               <td><%=x.p_title %></td>
+               <td><%=x.p_price %></td>
+               <td><%=x.p_desc %></td>
+               <td><img class="imageStyle" src="<%=x.p_image %>" alt=""></td>
+               <td><a href="/editPage/<%=x._id%>">Edit</a></td>
+               <td><a href="/delete/<%=x._id%>">Delete</a></td>
+            </tr>
+         <% } %>
+      </table>
+  <% }else{ %>
+       <h4>Data not found</h4>
+  <% } %>
+
+    <br>
+
+<%-include('../Include/footer.ejs') %>

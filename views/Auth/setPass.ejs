@@ -1,0 +1,34 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/register.css">
+
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+
+   <form action="/setPasswordData" method="POST">
+      <input type="hidden" value="<%=csrf_token %>" name="_csrf">
+
+      <h3>Set New Password</h3>
+
+       <div>
+          <input class="input" type="text" name="n_password" placeholder="Enter new password">
+       </div>
+
+       <div>
+          <input class="input" type="text" name="c_password" placeholder="Confirm password">
+       </div>
+       <div>
+         <input type="hidden" value="<%=userId %>" name="user_id">
+       </div>
+       <% if(errorMessage){ %>
+         <h6 style="color:red;"><%=errorMessage %></h6>
+    <% } %>
+       <div>
+         <button id="btn" type="submit">Submit</button>
+       </div>
+
+   </form>
+
+<%-include('../Include/footer.ejs') %>
+

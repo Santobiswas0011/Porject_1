@@ -1,0 +1,37 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/singleData.css">
+
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+   <h2>Product Details</h2>
+
+     <div id="card">
+        <div class="row">
+          <div class="col-8">
+             <img class="imgStyle" src="../../<%=data.p_image %>" alt="">
+          </div>
+          <div style="text-align:center;margin-top:20px;" class="col-4">
+             <h4><%=data.p_title %></h4>
+             <h6><%=data.p_price %> <i class="fa fa-inr" aria-hidden="true"></i></h6>
+             <p><%=data.p_desc %></p>
+             <i class="fa fa-star" aria-hidden="true"></i>
+             <i class="fa fa-star" aria-hidden="true"></i>
+             <i class="fa fa-star" aria-hidden="true"></i>
+             <i class="fa fa-star-half" aria-hidden="true"></i>
+             <i class="fa fa-star-o" aria-hidden="true"></i>
+             <p>2569 ratings</p>
+             <form action="/addToCart" method="POST">
+               <input type="hidden" value="<%=csrf_token %>" name="_csrf">
+
+                <input type="hidden" value="<%=data._id %>" name="p_id">
+                <input type="hidden" value="1" name="quantity">
+                <button type="submit" id="btn">Addd to cart</button>
+             </form>
+
+             <button id="btn">Buy now</button>
+          </div>
+        </div>
+     </div>
+<%-include('../Include/footer.ejs') %>

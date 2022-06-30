@@ -1,0 +1,39 @@
+
+<%-include('../Include/header.ejs') %>
+<link rel="stylesheet" href="/css/register.css">
+
+</head>
+<body>
+   <%-include('../Include/navigation.ejs') %>
+
+   <form action="/registerData" method="POST">
+      <input type="hidden" value="<%=csrf_token %>" name="_csrf">
+
+      <h2>Create your account</h2>
+       <div>
+          <input class="input" type="text" name="u_name" placeholder="Enter your user name" required>
+       </div>
+       <div>
+          <input class="input" type="email" name="u_email" placeholder="Enter your user email" required>
+       </div>
+       <div>
+          <input class="input" type="password" name="password" placeholder="Enter your user password" required>
+       </div>
+       <div>
+         <% if(errorMessage){ %>
+               <h5 style="color:red;"><%=errorMessage%></h5>
+         <% } %>
+       </div>
+       <div>
+         <% if(error.length > 0){ %>
+             <% for(let x of error){ %>
+               <h5 style="color:red;"><%=x.msg%></h5>
+             <% } %>
+         <% } %>
+       </div>
+       <div>
+         <button id="btn" type="submit">Register</button>
+       </div>
+   </form>
+
+<%-include('../Include/footer.ejs') %>

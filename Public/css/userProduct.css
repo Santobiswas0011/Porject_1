@@ -1,0 +1,20 @@
+
+h2{
+   text-align: center;
+   margin: 15px;
+}
+
+.cardStyle{
+   height:195px;
+   display: flex;
+   flex-direction: row;
+}
+
+.imgStyle{
+   width:200px;
+   height:100%;
+}
+
+form{
+   text-align: center;
+}
